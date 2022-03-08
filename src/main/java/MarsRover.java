@@ -4,8 +4,12 @@ public class MarsRover {
     public String direction;
 
     public MarsRover(int x, int y, String direction) {
-        this.x = x;
-        this.y = y;
-        this.direction = direction;
+        if (direction == "N" || direction == "W" || direction == "S" || direction == "E") {
+            this.x = x;
+            this.y = y;
+            this.direction = direction;
+        } else {
+            throw new IllegalArgumentException("Only N,W,S,E directions allowed");
+        }
     }
 }
