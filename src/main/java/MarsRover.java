@@ -17,4 +17,8 @@ public class MarsRover {
             throw new IllegalArgumentException("Only N,W,S,E directions allowed");
         }
     }
+
+    public void MoveForward() {
+
+    }
 }

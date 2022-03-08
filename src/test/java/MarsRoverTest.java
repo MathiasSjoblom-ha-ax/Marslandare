@@ -13,6 +13,13 @@ public class MarsRoverTest {
     }
 
     @Test
+    public void testErrorOnNullDirection() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                new MarsRover(1,1,null));
+        assertEquals("Only N,W,S,E directions allowed", exception.getMessage());
+    }
+
+    @Test
     public void testErrorOnFaultyCords() {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 new MarsRover(8,1,"E"));
