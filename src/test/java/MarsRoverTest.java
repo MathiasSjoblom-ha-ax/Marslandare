@@ -12,4 +12,11 @@ public class MarsRoverTest {
         assertEquals("Only N,W,S,E directions allowed", exception.getMessage());
     }
 
+    @Test
+    public void testErrorOnFaultyCords() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                new MarsRover(8,1,"E"));
+        assertEquals("Only numbers between 0-6 allowed", exception.getMessage());
+    }
+
 }
