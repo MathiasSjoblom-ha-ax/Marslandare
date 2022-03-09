@@ -9,14 +9,14 @@ public class MarsRoverTest {
     public void testErrorOnFaultyDirection() {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 new MarsRover(1,1,"V"));
-        assertEquals("Only N,W,S,E directions allowed", exception.getMessage());
+        assertEquals("Only N,E,S,W directions allowed", exception.getMessage());
     }
 
     @Test
     public void testErrorOnNullDirection() {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 new MarsRover(1,1,null));
-        assertEquals("Only N,W,S,E directions allowed", exception.getMessage());
+        assertEquals("Only N,E,S,W directions allowed", exception.getMessage());
     }
 
     @Test
@@ -24,6 +24,14 @@ public class MarsRoverTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
                 new MarsRover(8,1,"E"));
         assertEquals("Only numbers between 0-6 allowed", exception.getMessage());
+    }
+
+    @Test
+    public void testOnMoving() {
+        assertEquals(1, new MarsRover(3,3,"N").MoveForward());
+        assertEquals(1, new MarsRover(2,2,"E").MoveForward());
+        assertEquals(0, new MarsRover(2,1,"S").MoveForward());
+        assertEquals(0, new MarsRover(1,5,"W").MoveForward());
     }
 
 }

@@ -11,14 +11,63 @@ public class MarsRover {
             throw new IllegalArgumentException("Only numbers between 0-6 allowed");
         }
 
-        if (direction == "N" || direction == "W" || direction == "S" || direction == "E") {
+        if (direction == "N" || direction == "E" || direction == "S" || direction == "W") {
             this.direction = direction;
         } else {
-            throw new IllegalArgumentException("Only N,W,S,E directions allowed");
+            throw new IllegalArgumentException("Only N,E,S,W directions allowed");
         }
     }
 
-    public void MoveForward() {
-
+    public int MoveForward() {
+        System.out.println("\nMoving From X:" + x + " Y:" + y + "\n");
+        if (direction == "N") {
+            if (y == 5) {
+                y = 1;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 0;
+            }
+            else {
+                y = y + 1;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 1;
+            }
+        }
+        if (direction == "E") {
+            if (x == 5) {
+                x = 1;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 0;
+            }
+            else {
+                x = x + 1;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 1;
+            }
+        }
+        if (direction == "S") {
+            if (y == 1) {
+                y = 5;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 0;
+            }
+            else {
+                y = y - 1;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 1;
+            }
+        }
+        if (direction == "W") {
+            if (x == 1) {
+                x = 5;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 0;
+            }
+            else {
+                x = x - 1;
+                System.out.println("Moving To X:" + x + " Y:" + y);
+                return 1;
+            }
+        }
+        return 1;
     }
 }
