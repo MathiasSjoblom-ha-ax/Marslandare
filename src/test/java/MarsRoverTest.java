@@ -40,5 +40,9 @@ public class MarsRoverTest {
         assertEquals(1, new MarsRover(1,1,"N").RoverRotate('R'));
         assertEquals(0, new MarsRover(1,1,"S").RoverRotate('L'));
         assertEquals(0, new MarsRover(1,1,"W").RoverRotate('R'));
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                new MarsRover(3,2,"E").RoverRotate('H'));
+        assertEquals("Only L,R rotations allowed", exception.getMessage());
     }
 }

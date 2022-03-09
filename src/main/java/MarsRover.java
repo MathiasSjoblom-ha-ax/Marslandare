@@ -72,6 +72,9 @@ public class MarsRover {
     }
 
     public int RoverRotate(char rotation) {
+        if (rotation != 'L' && rotation != 'R') {
+            throw new IllegalArgumentException("Only L,R rotations allowed");
+        }
         final String[] allDirections = {"S", "E", "N", "W"};
         System.out.println("\nRotating from " + direction + "\n");
         if (rotation == 'L') {
