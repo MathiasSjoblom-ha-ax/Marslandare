@@ -34,4 +34,11 @@ public class MarsRoverTest {
         assertEquals(0, new MarsRover(1,5,"W").MoveForward());
     }
 
+    @Test
+    public void testOnRoverRotating() {
+        assertEquals(1, new MarsRover(1,1,"E").RoverRotate('L'));
+        assertEquals(1, new MarsRover(1,1,"N").RoverRotate('R'));
+        assertEquals(0, new MarsRover(1,1,"S").RoverRotate('L'));
+        assertEquals(0, new MarsRover(1,1,"W").RoverRotate('R'));
+    }
 }

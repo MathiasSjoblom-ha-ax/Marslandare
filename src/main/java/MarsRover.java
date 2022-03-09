@@ -70,4 +70,40 @@ public class MarsRover {
         }
         return 1;
     }
+
+    public int RoverRotate(char rotation) {
+        final String[] allDirections = {"S", "E", "N", "W"};
+        System.out.println("\nRotating from " + direction + "\n");
+        if (rotation == 'L') {
+            for (int i = 0; i < 4; i++) {
+                if (direction == allDirections[i]) {
+                    if (allDirections[i] == "S") {
+                        direction = "W";
+                        System.out.println("Rotating to " + direction);
+                        return 0;
+                    } else {
+                        direction = allDirections[i-1];
+                        System.out.println("Rotating to " + direction);
+                        return 1;
+                    }
+                }
+            }
+        }
+        if (rotation == 'R') {
+            for (int i = 0; i < 4; i++) {
+                if (direction == allDirections[i]) {
+                if (allDirections[i] == "W") {
+                    direction = "S";
+                    System.out.println("Rotating to " + direction);
+                    return 0;
+                } else {
+                    direction = allDirections[i+1];
+                    System.out.println("Rotating to " + direction);
+                    return 1;
+                    }
+                }
+            }
+        }
+        return 1;
+    }
 }
