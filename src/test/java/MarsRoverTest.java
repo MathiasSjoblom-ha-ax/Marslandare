@@ -28,12 +28,14 @@ public class MarsRoverTest {
 
     @Test
     public void testOnMoving() {
-        assertEquals(1, new MarsRover(3,3,"N").MoveForward());
-        assertEquals(1, new MarsRover(2,2,"E").MoveForward());
-        assertEquals(0, new MarsRover(2,1,"S").MoveForward());
-        assertEquals(0, new MarsRover(1,5,"W").MoveForward());
+        assertEquals("3:5:E", new MarsRover(3,3,"W").Move("brffrb"));
+        assertEquals("5:1:N", new MarsRover(5,1,"S").Move("rr"));
+        assertEquals("3:4:E", new MarsRover(2,5,"W").Move("bbllffrfrbbbbllfff"));
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                new MarsRover(3,3,"W").Move("brffpb"));
+        assertEquals("Illegal command inserted!", exception.getMessage());
     }
-
+    /*
     @Test
     public void testOnRoverRotating() {
         assertEquals(1, new MarsRover(1,1,"E").RoverRotate('L'));
@@ -45,4 +47,5 @@ public class MarsRoverTest {
                 new MarsRover(3,2,"E").RoverRotate('H'));
         assertEquals("Only L,R rotations allowed", exception.getMessage());
     }
+     */
 }
